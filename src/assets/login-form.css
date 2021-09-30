@@ -1,0 +1,215 @@
+/*.main-container {
+    display:flex;
+    flex-direction:row;
+    height:100vh;
+    width:100%;
+}*/
+
+
+.card-container {
+    display:flex;
+    flex-direction:row;
+    align-items:flex-end;
+    background-color: rgb(155, 95, 212);
+    
+    
+}
+
+.small-container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.satisfied {
+    text-align: center;
+    width:50vw;
+}
+
+.formgroup-container {
+    display:flex;
+    flex-direction:column;
+}
+
+.label {
+    text-align: left;
+    margin-left:10px;
+    margin-top:10px;
+}
+
+.checkbox-container {
+    display:flex;
+    flex-direction:row;
+    margin-top:10px;
+}
+
+.button {
+    width:27vw;
+    border-radius: 3px;
+    background-color:rgb(155, 95, 212);
+    color:#ffffff;
+    margin-left:10px;
+    margin-right:30px;
+    margin-top:10px;
+}
+
+.input-container {
+    border-radius: 3px;;
+    border-width:1px;
+    border-color:#ffffff;
+    width:57vw;
+    height:3vh;
+    margin-left:10px;
+    margin-top:10px;
+}
+
+.skote-heading {
+    text-align: left;
+    margin-left:10px;
+}
+
+.skote-container {
+    background-color:#ffffff;
+    padding-top:30px;
+}
+.remeber {
+    margin-left:10px;
+}
+
+.skote-heading3 {
+    text-align: left;
+    margin-left: 10px;;
+}
+
+
+@media (min-width:768px) {
+    .card-container {
+        width:70vw;
+    }
+    .skote-heading3 {
+        text-align: left;
+        margin-left:10px;
+    }
+    .main-container {
+        display:flex;
+        flex-direction:row;
+        height:100vh;
+        width:100%;
+    }
+}
+
+@media (min-width:1024px) {
+    .skote-container {
+        width:30vw;
+        padding-left:10px;
+    }
+    .card-container {
+        width:50vw;
+        align-content: center;
+        justify-content: center;
+    }
+    .skote-heading {
+        font-size:30px;
+    }
+    .skote-heading3 {
+        font-size:13px;
+        margin-left:10px;
+        text-align: left;
+    }
+    .main-container {
+        display:flex;
+        flex-direction:row;
+        height:100vh;
+        width:100%;
+    }
+    .input-container {
+        border-radius: 3px;;
+        border-width:1px;
+        border-color:#ffffff;
+        width:17vw;
+        height:3vh;
+        margin-left:10px;
+        margin-top:10px;
+    }
+    .button {
+        width:19vw;
+        border-radius: 3px;
+        background-color:rgb(155, 95, 212);
+        color:#ffffff;
+        margin-left:10px;
+        margin-right:30px;
+        margin-top:10px;
+        align-self: flex-start;
+    }
+}
+
+.image {
+    width:37px;
+    height: 37px;
+    margin-left:10px;
+}
+
+.skotelogo-container {
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+
+}
+
+.clients-heading {
+    font-size: 27px;
+    margin-left:10px;
+}
+.satisfied {
+    font-size: 17px;
+    text-align: center;
+    margin-left: 57px;
+}
+@media (min-width:768px) {
+    .satisfied {
+        font-size:17px;
+        text-align: center;
+        margin-left:50px;
+    }
+    .clients-heading {
+        text-align: center;
+}
+.main-container {
+    display:flex;
+    flex-direction:row;
+    height:100vh;
+    width:100%;
+}
+.card-container {
+    width: 70vw;
+}
+.skote-container {
+    width:27vw;
+}
+}
+@media (min-width:1024px) {
+    .card-container {
+        width:57vw;
+    }
+}
+@media (min-width:425px) {
+    .satisfied {
+        margin-left:70px;
+    }
+    .clients-heading {
+        margin-left: 57px;;
+    }
+}
+@media (min-width:1440px) {
+    .card-container {
+        width:50vw;
+    }
+}
+
+.stylesign {
+    color:rgb(155, 95, 212);
+}
+
+.style-skote {
+    color:skyblue;
+}
