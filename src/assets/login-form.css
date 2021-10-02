@@ -6,7 +6,7 @@
 }*/
 
 
-.card-container {
+/* .card-container {
     display:flex;
     flex-direction:row;
     align-items:flex-end;
@@ -187,6 +187,7 @@
     width:27vw;
 }
 }
+
 @media (min-width:1024px) {
     .card-container {
         width:57vw;
@@ -212,4 +213,190 @@
 
 .style-skote {
     color:skyblue;
+} */
+
+
+
+
+
+@media (min-width:320px) {
+    .login-container {
+        background-color:rgb(133, 58, 204);
+        /* height:21vh; */
+        background-size:cover;
+        display:flex;
+        flex-direction: column;
+        align-items:flex-start;
+        padding-left: 10px;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+        padding-bottom:10px;
+        /* max-height: 20vh;
+        min-height: 19vh; */
+        max-height: 87px;
+    }
+
+    .skoteimage {
+        border-radius:30px;
+        width:10vw;
+        margin-top:10px;
+    }
+
+    
+    .label {
+        margin-top:10px;
+        margin-bottom:10px;
+        text-align: left;
+        margin-left: 10px;
+    }
+    .loginbutton {
+        width:93%;
+        margin:auto;
+        color:#ffffff;
+       background-color:rgb(58, 31, 177);
+    }
+    .label3 {
+        margin-top:30px;
+        text-align: left;
+    }
+    .inputtext {
+        width:91%;
+        margin:auto;
+        margin-bottom:10px;
+    }
+    .formgroup-container {
+        display:flex;
+        flex-direction:column;
+        /* margin-left: 10px;; */
+    }
+    
+    .signterms {
+        font-size:13px;
+    }
+    .stylesign {
+        color:rgb(133, 58, 204);
+    }
+    .signheading {
+        color:rgb(58, 31, 177);
+    }
+}
+
+
+@media (min-width:425px) {
+    .inputtext {
+        width:96vw;
+        margin:auto;
+        margin-bottom:10px;
+    }
+    .loginbutton {
+        width:97vw;
+        color:#ffffff;
+        background-color:rgb(58, 31, 177);
+    }
+    .login-container {
+        /* height:15vh; */
+        background-size: cover;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+        max-height: 97;
+    }
+    .skoteimage {
+        padding-top:0px;
+        
+        margin-top:1px;
+        border-radius: 73px;
+        
+    }
+    .stylesign {
+        color:rgb(133, 58, 204);
+    }
+    .signheading {
+        color:rgb(58, 31, 177);
+    }
+}
+
+@media (min-width:768px) {
+    .login-container {
+        /* height:30vh; */
+        background-size: cover;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+        max-height: 93px;
+    }
+    .label3 {
+        margin-top:70px;
+    }
+    .loginbutton {
+        width:97%;
+        margin-left:17px;
+        color:#ffffff;
+        background-color:rgb(58, 31, 177);
+    }
+    .formgroup-container {
+        display:flex;
+        flex-direction:column;
+        margin-left:17px;
+    }
+    .stylesign {
+        color:rgb(133, 58, 204);
+    }
+    .signheading {
+        color:rgb(58, 31, 177);
+    }
+}
+
+@media (min-width:1024px) {
+    .label {
+        margin-left:17px;
+    }
+    .login-container {
+        background-size: cover;
+        max-height: 157px;
+    }
+    .skoteimage {
+        border-radius: 70px;
+        margin-top: 37px;
+        
+    }
+    .stylesign {
+        color:rgb(133, 58, 204);
+    }
+    .signheading {
+        color:rgb(58, 31, 177);
+    }
+}
+
+@media (min-width:1440px) {
+    .login-container {
+        /* height:21vh; */
+        background-size: cover;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+    }
+    .skoteimage {
+        border-radius:70px;
+        width:7vw;
+    }
+    .label3 {
+        margin-top:70px;
+    }
+    .label {
+        margin-left:27px;
+    }
+    .inputtext {
+        width:96%;
+    }
+    .loginbutton {
+        width:95vw;
+        
+        margin-left:15px;
+        color:#ffffff;
+        background-color:rgb(58, 31, 177);
+    }
+    .stylesign {
+        color:rgb(133, 58, 204);
+    }
+    .signheading {
+        color:rgb(58, 31, 177);
+    }
 }

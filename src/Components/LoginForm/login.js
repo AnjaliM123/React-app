@@ -7,13 +7,14 @@ import {FaFacebook} from 'react-icons/fa';
 
 
 const LoginForm=(props)=>  {
-    const {onChange, onChangePassword, onSubmitButtom}=props
-    console.log(onChange, "onChange")
-   
-    console.log("onSubmit", onSubmitButtom)
+    // const {onChange, onChangePassword, onSubmitButtom}=props
+    const {onChangeValue}=props
     
     
     
+    const onSubmitButtom=(event)=> {
+        event.preventDefault()
+    }
 
   return (
       //<Form onSubmit={(e)=>onSubmitButtom(e)}>
@@ -39,11 +40,11 @@ const LoginForm=(props)=>  {
                         <Form className="skote-container">
                         <FormGroup className="formgroup-container">
                             <Label for="exampleEmail" className="label" >Email</Label>
-                            <Input type="email" name="email" id="exampleEmail" className="input-container" onChange={(e)=>{onChange(e)}}   placeholder="with a placeholder" />
+                            <Input type="email" name="email" id="exampleEmail" className="input-container" onChange={(e)=>{onChangeValue(e)}}   placeholder="with a placeholder" />
                         </FormGroup>
                         <FormGroup className="formgroup-container">
                             <Label for="examplePassword" className="label">Password</Label>
-                            <Input type="password" name="password" id="examplePassword"  className="input-container" required  onChange={(e)=>{onChangePassword(e)}}  placeholder="password placeholder" />
+                            <Input type="password" name="password" id="examplePassword"  className="input-container" required  onChange={(e)=>{onChangeValue(e)}}  placeholder="password placeholder" />
                         </FormGroup>
                         <FormGroup check className="checkbox-container">
                             <Label check>
