@@ -11,6 +11,12 @@ import Hooks from "./Components/hooks/index"
 
 import FormName from "./Components/LoginForm/Form"
 
+import Main from "./Components/lifeCycleMethods/ClassComponent"
+
+import ClassComponent from "./Components/lifeCycle/Hooks"
+
+import HooksConcept from "./Components/lifeCycle/Function"
+
 function App() {
   return (
     <div className="App">
@@ -22,7 +28,14 @@ function App() {
 
         {/* <LoginForm/> */}
 
-        <FormName/>
+        {/* <FormName/> */}
+        {/* <Main /> */}
+
+        {/* <ClassComponent/> */}
+
+
+
+        <HooksConcept/>
 
     </div>
   );
