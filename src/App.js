@@ -17,6 +17,28 @@ import ClassComponent from "./Components/lifeCycle/Hooks"
 
 import HooksConcept from "./Components/lifeCycle/Function"
 
+import UsersList from "./Components/axios/User"
+
+import Axios from "./Components/axiosForHttp/ClassComponent"
+
+import UsingAxios from "./Components/usingAxios/ClassComponent"
+
+import HooksAxios from "./Components/usingAxios/Hooks"
+
+import HooksUser from "./Components/axiosForHttp/Hooks"
+
+import UsingAsync from "./Components/axiosHttpForNew/ClassComponent"
+
+import UsingTry from "./Components/axiosHttpForNew/Hooks"
+
+import AsycClass from "./Components/http/ClassComponent"
+
+import AxiosClass from "./Components/http/ClassComponent"
+
+import AxiosTry from "./Components/http/functional"
+
+import AxiosHooks from "./Components/http/functional"
+
 function App() {
   return (
     <div className="App">
@@ -26,16 +48,44 @@ function App() {
 
         {/* <Hooks/> */}
 
-        {/* <LoginForm/> */}
+         {/* <LoginForm/>  */}
 
-        {/* <FormName/> */}
+         {/* <FormName/>  */}
         {/* <Main /> */}
 
-        {/* <ClassComponent/> */}
+         {/* <ClassComponent/>  */}
 
 
 
-        <HooksConcept/>
+        {/* <HooksConcept/> */}
+
+    {/* <UsersList/> */}
+
+
+        {/* <Axios/> */}
+
+
+         {/* <UsingAxios/>  */}
+
+          {/* <HooksAxios/>    */}
+
+
+
+         {/* <HooksUser/>  */}
+
+
+          {/* <UsingAsync/>   */}
+
+
+
+          {/* <UsingTry/>  */}
+
+          {/* <AsycClass/> */}
+
+
+          {/* <AxiosClass/> */}
+
+          <AxiosHooks/>
 
     </div>
   );

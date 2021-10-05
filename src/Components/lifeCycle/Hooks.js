@@ -9,6 +9,7 @@ function Hooks() {
 
     return (
         <div>
+            <h1>class component</h1>
             <button type="button" onClick={onClickShow}>show</button>
             {show && <ClassComponent/>}
         </div>

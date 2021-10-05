@@ -2,6 +2,7 @@ import LoginForm from "./login"
 import SkoteClass from "../ClassComponent"
 import React , {useState} from "react"
 
+
 const Skote=()=>{
     // const onChangeEmail=(event)=> {
     //     //console.log(event.target.value, "inside onchange handler")

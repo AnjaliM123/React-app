@@ -6,7 +6,7 @@ function HooksLifeCycle() {
 
     useEffect(()=> {
         console.log("use effect after first render");
-    })
+    }, [])
 
     useEffect(()=> {
                 console.log("use effect when ever props or state is changed");

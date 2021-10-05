@@ -10,6 +10,7 @@ function Hooks() {
 
     return (
         <>
+        <h1>functional component</h1>
         <button type="button" onClick={onClickShow}>show</button>
                 {show&& <HooksLifeCycle/>}
         </>

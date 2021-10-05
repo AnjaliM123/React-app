@@ -3,6 +3,7 @@ import {Component} from "react"
 class ClassComponent extends Component {
     constructor(props) {
         super(props)
+        console.log("Constructor")
         this.state={count:0}
     }
 
@@ -44,7 +45,7 @@ class ClassComponent extends Component {
         const {count}=this.state
         return (
             <div>
-                <h>class component</h>
+                <h1>class component</h1>
                 <p>count {count}</p>
                 <button type="button" onClick={this.onClickButton}>Click</button>
             </div>
