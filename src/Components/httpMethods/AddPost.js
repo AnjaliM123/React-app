@@ -39,7 +39,6 @@ const ModalExample = (props) => {
 
   return (
     <div>
-      <Button color="primary" onClick={toggle} className="buttonstyle">add</Button>
       <Modal isOpen={modal} fade={false} toggle={toggle} >
         <ModalHeader toggle={toggle}>post request</ModalHeader>
         <ModalBody>
@@ -47,16 +46,16 @@ const ModalExample = (props) => {
           <Form inline>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
         <Label for="exampleEmail" className="mr-sm-2">title</Label>
-        <Input type="email" name="text" id="exampleText" onChange={(e)=>onChangeTitle(e)} placeholder="enter text" />
+        <Input type="email" name="title" id="exampleText" onChange={(e)=>onChangeTitle(e)} placeholder="enter text" />
       </FormGroup>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
         <Label for="examplePassword" className="mr-sm-2">body</Label>
-        <Input type="text" name="text" id="exampleTxt" onChange={(e)=>onChangeBody(e)} placeholder="enter text" />
+        <Input type="text" name="body" id="exampleTxt"onChange={(e)=>onChangeTitle(e)} placeholder="enter text" />
       </FormGroup>
     </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={onClickSubmit}>submit</Button>{' '}
+          <Button color="primary" onClick={onClickSubmit} >submit</Button>{' '}
         </ModalFooter>
       </Modal>
     </div>

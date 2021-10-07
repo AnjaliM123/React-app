@@ -407,17 +407,18 @@
 /* tr:hover {
     background-color:burlywood
 } */
-.modelcontainer {
+/* .modelcontainer {
     display:flex;
     flex-direction:row;
     justify-content:space-around;
-}
+} */
 
-tr:hover {
+/* tr:hover {
     background-color:#28a7c7;
-}
+    color:burlywood;
+} */
 
-.buttonstyle:hover {
+/* .buttonstyle:hover {
     background-color: #28a7c7;
-    width:7vw;
-}
+    
+} */
