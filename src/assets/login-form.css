@@ -400,3 +400,24 @@
         color:rgb(58, 31, 177);
     }
 }
+
+
+
+
+/* tr:hover {
+    background-color:burlywood
+} */
+.modelcontainer {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+
+tr:hover {
+    background-color:#28a7c7;
+}
+
+.buttonstyle:hover {
+    background-color: #28a7c7;
+    width:7vw;
+}

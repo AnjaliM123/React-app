@@ -39,6 +39,9 @@ import AxiosTry from "./Components/http/functional"
 
 import AxiosHooks from "./Components/http/functional"
 
+import AxiosTable from "./Components/httpMethods"
+
+
 function App() {
   return (
     <div className="App">
@@ -85,7 +88,11 @@ function App() {
 
           {/* <AxiosClass/> */}
 
-          <AxiosHooks/>
+          {/* <AxiosHooks/> */}
+
+         <AxiosTable/>
+
+        
 
     </div>
   );

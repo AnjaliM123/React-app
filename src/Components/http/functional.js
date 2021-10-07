@@ -7,13 +7,15 @@ function Hooks() {
 
     const fetchedData=async()=> {
         let data
-        const response= await axios.get("https://jsonplaceholder.typicode.com/users");
-        console.log(response)
+        
+        
         
 
         try {        
+          const response= await axios.get("https://jsonplaceholder.typicode.com/users");
+          console.log(response)
         data=response.data.map((user)=> {
-        let responseData={
+        return {
             id:`${user.id}`,
             name:`${user.name}`,
             phone:`${user.phone}`,
@@ -28,7 +30,7 @@ function Hooks() {
         setUsersData((prevState)=> ({...prevState, users:data , loading:false}))
     }
     catch (e) {
-       setUsersData((prevState)=> ({...prevState, errors:e}))
+       setUsersData((prevState)=> ({...prevState, errors:e, loading:false}))
     }
                 
      }
@@ -44,7 +46,7 @@ useEffect(()=> {
         <h1>users</h1>
         <div>
             {console.log(usersData.loading)}
-            {console.log(usersData.users)}
+            
         {!(usersData.loading) ? (
             usersData.users.map((eachUser) => {
               const { id,username, name,phone,website,address,street,email,company } = eachUser;
