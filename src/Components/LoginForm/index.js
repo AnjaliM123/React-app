@@ -1,5 +1,5 @@
 import LoginForm from "./login"
-import SkoteClass from "../ClassComponent"
+// import SkoteClass from "../ClassComponent"
 import React , {useState} from "react"
 
 
