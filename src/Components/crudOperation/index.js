@@ -5,6 +5,10 @@ import { AiFillDelete } from "react-icons/ai";
 
 import AddPost from "./AddPost";
 
+
+
+import {Link} from "react-router-dom"
+
 function Axios() {
   const [usersData, setUsersData] = useState({
     users: [],
@@ -26,11 +30,63 @@ function Axios() {
     }));
   };
 
+  const onClickView=(id)=> {
+    console.log(id)
+
+
+    let data;
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts?id=${id}`)
+      .then((response) => {
+        data = response.data.map((user) => {
+          return {
+            id: `${user.id}`,
+            userId: `${user.userId}`,
+            title: `${user.title}`,
+            body: `${user.body}`,
+          };
+        });
+        setUsersData((prevState) => ({ ...prevState, users: data }));
+      })
+      .catch((error) => {
+        setUsersData((prevState) => ({ ...prevState, errors: error }));
+      });
+
+      // <Link to={`/posts?id=${id}`}>
+         
+      // </Link>
+        
+
+        // return (usersData.users.map(item=> <BlogItem items={item} key={item.id}/>))
+  //       return (
+  // usersData.users.map(user=> <BlogItem item={user} key={user.id}/>)
+  //       )
+    // let data;
+    // axios
+    //   .get("https://jsonplaceholder.typicode.com/posts", { params: { id: `${id}` } })
+    //   .then((response) => {
+    //     data = response.data.map((user) => {
+    //       return {
+    //         id: `${user.id}`,
+    //         userId: `${user.userId}`,
+    //         title: `${user.title}`,
+    //         body: `${user.body}`,
+    //       };
+    //     });
+    //     setUsersData((prevState) => ({ ...prevState, users: data }));
+    //   })
+    //   .catch((error) => {
+    //     setUsersData((prevState) => ({ ...prevState, errors: error }));
+    //   });
+
+  }
+
   console.log(usersData);
 
   const addToggle = () => {
     setModal(!modal);
   };
+  
   const onClickSubmit = () => {
     let addData;
     const article = {
@@ -159,7 +215,7 @@ function Axios() {
             onClickSubmit={onClickSubmit}
             onChangeTitle={onChangeTitle}
           />
-          <Table>
+          <Table striped >
             <thead>
               <tr>
                 {/* <th >id</th> */}
@@ -167,6 +223,7 @@ function Axios() {
                 <th>User id</th>
                 <th>Title</th>
                 {/* <th style={{border:"1px solid black"}}>body</th> */}
+                <th>View</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -181,6 +238,8 @@ function Axios() {
                     <td>{title}</td>
                     {/* <td style={{border:"1px solid black"}}>{body}</td> */}
                     {/* <td ><AiFillDelete id={id} onClick={()=>onClickDelete(id)}/> </td> */}
+                    {/* <td><Button onClick={()=> onClickView(id)}>view</Button></td> */}
+                    <td><Link to={`/posts?${id}`}><Button onClick={()=> onClickView(id)}>view</Button></Link></td>
                     <td onClick={() => onClickDelete(id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

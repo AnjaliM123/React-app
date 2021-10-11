@@ -392,6 +392,11 @@
   }
 }
 
+.loginbutton {
+  width: 84vw;
+  margin-right: 30px;
+}
+
 /* tr:hover {
     background-color:burlywood
 } */
@@ -411,7 +416,7 @@
     
 } */
 
-.container {
+/* .container {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -419,7 +424,33 @@
   height: 100vh;
   background-image: url("https://res.cloudinary.com/ddcycgbwg/image/upload/v1633696396/images_czf2nm.jpg");
   background-size: cover;
-}
+} */
 /* .registration-heading {
   color: cornflowerblue;
 } */
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.link-item {
+  list-style-type: none;
+  margin-left: 10px;
+}
+
+.header-container {
+  background-color: dimgrey;
+  padding: 10px;
+}
+
+.homecontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  align-content: center;
+  align-items: center;
+  background-color: lightslategrey;
+}

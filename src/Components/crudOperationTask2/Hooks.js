@@ -40,7 +40,7 @@ const fetchedData=()=> {
     
 
     return (
-        <>
+        <div className="container">
         <h1>hooks</h1>
         <h1>users</h1>
         <hr/>
@@ -67,7 +67,7 @@ const fetchedData=()=> {
           )}
         </div>
         
-        </>
+        </div>
     )
 
 }

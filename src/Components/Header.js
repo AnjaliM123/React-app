@@ -1,0 +1,20 @@
+import React from 'react'
+import {Link} from 'react-router-dom'
+
+
+export default function Header() {
+    return (
+        <>
+            <ul className="header-container">
+                <li className="link-item"><Link to="/">Home</Link></li>
+                <li className="link-item"><Link to="/RegistrationPage">RegistrationPage</Link></li>
+                <li className="link-item"><Link to="/Login-Form">Login Form</Link></li>
+                <li className="link-item"><Link to="/Counter">Counter</Link></li>
+                <li className="link-item"><Link to="/Users-List">Users List</Link></li>
+                <li className="link-item"><Link to="/Users-Details">Users Details</Link></li>
+                <li className="link-item"><Link to="/CrudOperation">Crud Operation</Link></li>
+                <li className="link-item"><Link to="/posts">Posts</Link></li>
+            </ul>
+        </>
+    )
+}

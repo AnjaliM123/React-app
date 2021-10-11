@@ -1,36 +1,33 @@
-
-
-/*.main-container {
-    background-color:rgb(22, 188, 194);
-    height:100vh;
-    background-size:cover;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.main-container {
+  background-color: rgb(22, 188, 194);
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
-*/
 
 .counter-heading {
-    color:rgb(20, 113, 141);
-    font-family:"Roboto";
-    font-size:30px;
+  color: rgb(20, 113, 141);
+  font-family: "Roboto";
+  font-size: 30px;
 }
 
 .count-heading {
-    color:rgb(20, 113, 141);
-    font-family:"Roboto";
-    font-size:30px;
+  color: rgb(20, 113, 141);
+  font-family: "Roboto";
+  font-size: 30px;
 }
 
-
-
 .button {
-    background-color: transparent;
-    border-style:solid;
-    border-width:1px;
-    color:rgb(20, 113, 141);
-    border-color:rgb(20, 113, 141);
-    border-radius:10px;
-    width:70px;
-    font-family:"Roboto";
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  color: rgb(20, 113, 141);
+  border-color: rgb(20, 113, 141);
+  border-radius: 10px;
+  width: 70px;
+  font-family: "Roboto";
 }

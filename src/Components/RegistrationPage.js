@@ -1,22 +1,25 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Input from "@mui/material/Input";
-import FilledInput from "@mui/material/FilledInput";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormHelperText from "@mui/material/FormHelperText";
+// import IconButton from "@mui/material/IconButton";
+// import Input from "@mui/material/Input";
+// import FilledInput from "@mui/material/FilledInput";
+// import OutlinedInput from "@mui/material/OutlinedInput";
+// import InputLabel from "@mui/material/InputLabel";
+// import InputAdornment from "@mui/material/InputAdornment";
+// import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+// import Visibility from "@mui/icons-material/Visibility";
+// import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import EmailIcon from "@mui/icons-material/Email";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import { flexbox } from "@mui/system";
+// import { flexbox } from "@mui/system";
 import Card from "@mui/material/Card";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
+
+const image =
+  "https://res.cloudinary.com/ddcycgbwg/image/upload/v1633696396/images_czf2nm.jpg";
 
 export default function InputAdornments() {
   const [values, setValues] = React.useState({
@@ -24,23 +27,34 @@ export default function InputAdornments() {
     showPassword: false,
   });
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+  // const handleChange = (prop) => (event) => {
+  //   setValues({ ...values, [prop]: event.target.value });
+  // };
 
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
+  // const handleClickShowPassword = () => {
+  //   setValues({
+  //     ...values,
+  //     showPassword: !values.showPassword,
+  //   });
+  // };
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+  // const handleMouseDownPassword = (event) => {
+  //   event.preventDefault();
+  // };
 
   return (
     <div className="container">
+    <Box
+      sx={{
+        display: "flex",
+        height: "100vh",
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundImage: `url(${image})`,
+        backgroundSize: "cover",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -50,12 +64,13 @@ export default function InputAdornments() {
           alignContent: "center",
           height: "100%",
           flexWrap: "wrap",
+          fontFamily: "Raleway",
         }}
       >
         <Card
           variant="outlined"
           sx={{
-            backgroundColor: "transparent",
+        
             height: "70%",
             borderColor: "Window",
             width: "100%",
@@ -66,8 +81,10 @@ export default function InputAdornments() {
             pl: 3,
           }}
         >
-          <h1 className="registration-heading mt-3">Registration Form</h1>
-          <div>
+          <Box sx={{ fontFamily: "Raleway", mt: 3 }}>
+            <h1>Registration Form</h1>
+          </Box>
+          <Box>
             <FormControl variant="standard">
               <Box
                 sx={{ display: "flex", alignItems: "flex-end", mb: 3, mt: 3 }}
@@ -107,14 +124,15 @@ export default function InputAdornments() {
                     variant="standard"
                   />
                 </Box>
-                <Box sx={{mt:3}}>
-                <Button variant="contained">submit</Button>
+                <Box sx={{ mt: 3 }}>
+                  <Button variant="contained">submit</Button>
                 </Box>
               </FormControl>
             </Box>
-          </div>
+          </Box>
         </Card>
       </Box>
+    </Box>
     </div>
   );
 }

@@ -11,6 +11,7 @@ class Counter extends Component {
     render () {
         const {count}=this.state
         return (
+            <div className="container">
             <div className="main-container">
                 <h1 className="counter-heading">Counter Application</h1>
                 <div>
@@ -18,6 +19,7 @@ class Counter extends Component {
                     <button type="button" className="button" onClick={this.onClickClick}>Click</button>
                     
                 </div>
+            </div>
             </div>
         )
     }
