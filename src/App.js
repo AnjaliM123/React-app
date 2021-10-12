@@ -35,6 +35,8 @@ import Task3 from "./components/crudOperation"
 
 import Home from "./components/Home"
 
+import PostDetails from './components/crudOperation/PostDetails';
+
 function App() {
   return (
     <BrowserRouter>
@@ -48,8 +50,8 @@ function App() {
      <Route path="/Users-List" component={UsersList} />
      <Route path="/Users-Details" component={Task1} />
      <Route path="/CrudOperation" component={Task2} />
-     <Route path="/posts" component={Task3} />
-     <Route path="/posts/:id" component={Task3}/>
+     <Route  path="/posts" exact component={Task3} />
+     <Route path="/posts/:id" exact component={PostDetails}/>
     </Switch>
 
     </BrowserRouter>

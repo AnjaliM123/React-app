@@ -5,9 +5,8 @@ import { AiFillDelete } from "react-icons/ai";
 
 import AddPost from "./AddPost";
 
-
-
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import PostDetails from "./PostDetails";
 
 function Axios() {
   const [usersData, setUsersData] = useState({
@@ -30,63 +29,18 @@ function Axios() {
     }));
   };
 
-  const onClickView=(id)=> {
-    console.log(id)
-
-
-    let data;
-    axios
-      .get(`https://jsonplaceholder.typicode.com/posts?id=${id}`)
-      .then((response) => {
-        data = response.data.map((user) => {
-          return {
-            id: `${user.id}`,
-            userId: `${user.userId}`,
-            title: `${user.title}`,
-            body: `${user.body}`,
-          };
-        });
-        setUsersData((prevState) => ({ ...prevState, users: data }));
-      })
-      .catch((error) => {
-        setUsersData((prevState) => ({ ...prevState, errors: error }));
-      });
-
-      // <Link to={`/posts?id=${id}`}>
-         
-      // </Link>
-        
-
-        // return (usersData.users.map(item=> <BlogItem items={item} key={item.id}/>))
-  //       return (
-  // usersData.users.map(user=> <BlogItem item={user} key={user.id}/>)
-  //       )
-    // let data;
-    // axios
-    //   .get("https://jsonplaceholder.typicode.com/posts", { params: { id: `${id}` } })
-    //   .then((response) => {
-    //     data = response.data.map((user) => {
-    //       return {
-    //         id: `${user.id}`,
-    //         userId: `${user.userId}`,
-    //         title: `${user.title}`,
-    //         body: `${user.body}`,
-    //       };
-    //     });
-    //     setUsersData((prevState) => ({ ...prevState, users: data }));
-    //   })
-    //   .catch((error) => {
-    //     setUsersData((prevState) => ({ ...prevState, errors: error }));
-    //   });
-
-  }
+  // const onClickView = (id) => {
+    
+  //     <PostDetails/>
+      
+  // };
 
   console.log(usersData);
 
   const addToggle = () => {
     setModal(!modal);
   };
-  
+
   const onClickSubmit = () => {
     let addData;
     const article = {
@@ -116,61 +70,24 @@ function Axios() {
     let deleted;
     const response = axios
       .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      // const deleted = usersData.users.filter(row => id !== row.id)
+      
 
       .then((response) => {
         console.log("deleted");
-        //  const deleted=delete usersData["id"]
-        //  const deleted=usersData.users.splice(id,1)
-        //  const rows=usersData.users.filter(row=>row.id!==deleted.id)
+        
         const rows = usersData.users.filter(function (row) {
           return row.id !== id;
         });
         setUsersData({ users: rows });
-        //setUsersData({users:usersData.users.splice(id,1)})
-        //setUsersData((prevState)=> ({...prevState, users:users.splice(id,1)}))
+        
       })
       .catch((error) => {
         console.log(error);
       });
-    //setUsersData((prevState)=> ({...prevState, users:deleted}))
-    // setUsersData({users:deleted})
-    //  const rows=usersData.users.filter((row)=>row.id!==id)
-    //  setUsersData((prevState)=> ({...prevState, users:rows}))
-
-    // setUsersData((prevState)=> ({...prevState, users:data}))
-    //  .then((response)=> {
-    //     data=splice(id,1)
-    //    console.log(response)
-    //       data=response.data.map((user)=> {
-
-    //         return {
-    //               id:`${user.id}`,
-    //               title:`${user.title}`,
-    //               body:`${user.body}`
-    //        }
-    //       })
-    //       setUsersData((prevState)=> ({...prevState, users:data}))
-    //  })
-    //  .catch((error)=> {
-    //    setUsersData((prevState)=> ({...prevState, errors:error}))
-    //  })
+    
   };
 
-  // const onClickSubmit=(id)=> {
-  //   let data
-  //   axios.post("https://jsonplaceholder.typicode.com/posts", {
-  //     title:"post request",
-  //     body:"post request",
-  //     userId:1,
-  // })
-  // .then((response)=> {
-  //    console.log(response)
-  // })
-  // .catch((error)=> {
-  //   console.log(error)
-  // })
-  // }
+  
 
   const fetchedData = () => {
     let data;
@@ -215,7 +132,8 @@ function Axios() {
             onClickSubmit={onClickSubmit}
             onChangeTitle={onChangeTitle}
           />
-          <Table striped >
+          <Table striped>
+            
             <thead>
               <tr>
                 {/* <th >id</th> */}
@@ -229,8 +147,11 @@ function Axios() {
             </thead>
             <tbody>
               {usersData.users.map((user, i) => {
+                
                 const { id, userId, title, body } = user;
+                
                 return (
+                  
                   <tr key={i}>
                     {/* <td >{id}</td> */}
                     <td>{id}</td>
@@ -239,7 +160,11 @@ function Axios() {
                     {/* <td style={{border:"1px solid black"}}>{body}</td> */}
                     {/* <td ><AiFillDelete id={id} onClick={()=>onClickDelete(id)}/> </td> */}
                     {/* <td><Button onClick={()=> onClickView(id)}>view</Button></td> */}
-                    <td><Link to={`/posts?${id}`}><Button onClick={()=> onClickView(id)}>view</Button></Link></td>
+                    <td>
+                      <Link to={`/posts/${id}`}>
+                        <Button >view</Button>
+                      </Link>
+                    </td>
                     <td onClick={() => onClickDelete(id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -256,8 +181,11 @@ function Axios() {
                         />
                       </svg>
                     </td>
+                    
                   </tr>
+                  
                 );
+                
               })}
             </tbody>
           </Table>
