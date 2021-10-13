@@ -14,6 +14,7 @@ export default function Header() {
                 <li className="link-item"><Link to="/Users-Details">Users Details</Link></li>
                 <li className="link-item"><Link to="/CrudOperation">Crud Operation</Link></li>
                 <li className="link-item"><Link to="/posts">Posts</Link></li>
+                <li className="link-item"><Link to="/redux">Counter</Link></li>
             </ul>
         </>
     )

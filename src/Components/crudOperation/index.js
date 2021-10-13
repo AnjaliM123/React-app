@@ -161,7 +161,8 @@ function Axios() {
                     {/* <td ><AiFillDelete id={id} onClick={()=>onClickDelete(id)}/> </td> */}
                     {/* <td><Button onClick={()=> onClickView(id)}>view</Button></td> */}
                     <td>
-                      <Link to={`/posts/${id}`}>
+                      {/* <Link to={`/posts/${id}`}> */}
+                      <Link to ={`/PostsDetails/${id}`}>
                         <Button >view</Button>
                       </Link>
                     </td>

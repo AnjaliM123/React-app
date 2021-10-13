@@ -37,24 +37,27 @@ import Home from "./components/Home"
 
 import PostDetails from './components/crudOperation/PostDetails';
 
+import ReduxCounter from "./components/reduxCounter"
 function App() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       
-    <Header/>
-    <Switch>
-      <Route exact path="/" component={Home} />
-    <Route  path="/RegistrationPage" component={RegistrationPage} />
-      <Route  path="/Login-Form" component={LoginForm} />
-     <Route path="/Counter" component={Counter} />
-     <Route path="/Users-List" component={UsersList} />
-     <Route path="/Users-Details" component={Task1} />
-     <Route path="/CrudOperation" component={Task2} />
-     <Route  path="/posts" exact component={Task3} />
-     <Route path="/posts/:id" exact component={PostDetails}/>
-    </Switch>
+    // <Header/>
+    // <Switch>
+    //   <Route exact path="/" component={Home} />
+    // <Route  path="/RegistrationPage" component={RegistrationPage} />
+    //   <Route  path="/Login-Form" component={LoginForm} />
+    //  <Route path="/Counter" component={Counter} />
+    //  <Route path="/Users-List" component={UsersList} />
+    //  <Route path="/Users-Details" component={Task1} />
+    //  <Route path="/CrudOperation" component={Task2} />
+    //  <Route  path="/posts" exact component={Task3} />
+    //  <Route path="/postsDetails/:id" exact component={PostDetails}/>
+    //  <Route path="/redux" component={ReduxCounter}/>
+    // </Switch>
 
-    </BrowserRouter>
+    // </BrowserRouter>
+    <ReduxCounter/>
   );
 }
 
