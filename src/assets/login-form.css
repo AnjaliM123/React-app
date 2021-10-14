@@ -454,3 +454,42 @@
   align-items: center;
   background-color: lightslategrey;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(87, 88, 184);
+  background-size: cover;
+}
+
+.labelcontainer {
+  margin-top: 10px;
+}
+@media (min-width: 320px) {
+  .reduxcontainer {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    padding-top: 10px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .reduxcontainer {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    padding-top: 10px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+  }
+}

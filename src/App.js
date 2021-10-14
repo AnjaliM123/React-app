@@ -38,6 +38,11 @@ import Home from "./components/Home"
 import PostDetails from './components/crudOperation/PostDetails';
 
 import ReduxCounter from "./components/reduxCounter"
+
+import SimpleForm from './components/SimpleForm';
+
+import ReduxForm from './components/ReduxForm';
+
 function App() {
   return (
     // <BrowserRouter>
@@ -57,7 +62,10 @@ function App() {
     // </Switch>
 
     // </BrowserRouter>
-    <ReduxCounter/>
+    // <ReduxCounter/>
+
+       <ReduxForm/>
+    
   );
 }
 
