@@ -75,6 +75,7 @@ const MaterialUiForm = (props) => {
             console.log(response)
            if (response.status===201) {
               history.push("/Home")
+              console.log("string")
            }
             
         
