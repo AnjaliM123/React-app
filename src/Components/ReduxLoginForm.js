@@ -13,7 +13,7 @@ import { ReportGmailerrorred, SmsFailedRounded } from "@mui/icons-material";
 import { required } from "../constants/index";
 import ModalExample from "./crudOperation/AddPost";
 import axios from "axios";
-
+import { useHistory } from "react-router-dom";
 
 const renderTextField = ({
   input,
@@ -34,32 +34,51 @@ const renderTextField = ({
 );
 
 
-const success=()=> {
-    console.log("success")
+// const  success=()=> {
+//    console.log("string")
+  
 
-}
+// }
 
 
-const submit=async(props)=> {
-    
-    console.log(props)
-    const article = {
-        username: "anjali",
-        passwoprd: "1234567",
-        email:"anjali.m@innomick.com",
-      };
-      const headers = { "Content-type": "application/json; charset=UTF-8" };
-      const response=await axios
-        .post("https://jsonplaceholder.typicode.com/posts", article, { headers })
-        console.log(response)
-       if (response.status===201) {
-           success()
-       }
+// const submit=async(props)=> {
+//     console.log(props)
+//     const article = {
+//         username: "anjali",
+//         passwoprd: "1234567",
+//         email:"anjali.m@innomick.com",
+//       };
+//       const headers = { "Content-type": "application/json; charset=UTF-8" };
+//       const response=await axios
+//         .post("https://jsonplaceholder.typicode.com/posts", article, { headers })
+//         console.log(response)
+//        if (response.status===201) {
+//            success()
+//        }
         
     
-}
+// }
 
 const MaterialUiForm = (props) => {
+    const history=useHistory()
+    console.log(history)
+    const submit=async(props)=> {
+        console.log(props)
+        const article = {
+            username: "anjali",
+            passwoprd: "1234567",
+            email:"anjali.m@innomick.com",
+          };
+          const headers = { "Content-type": "application/json; charset=UTF-8" };
+          const response=await axios
+            .post("https://jsonplaceholder.typicode.com/posts", article, { headers })
+            console.log(response)
+           if (response.status===201) {
+              history.push("/Home")
+           }
+            
+        
+    }
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit(submit)}>
