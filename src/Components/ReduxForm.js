@@ -1,26 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Field, reduxForm } from "redux-form";
-import { Button, Label, Form, Input } from "reactstrap";
+import { Button, Label, Form, Input, FormGroup } from "reactstrap";
 import { required, date, email, select, checkBox } from "../constants";
 
-const renderFieldText = ({
-  input,
-  label,
-  type,
-  meta: { touched, error, warning },
-  custom,
-}) => (
-  <div>
-    <Label>User Name</Label>
-    <div>
-      <Input {...input} placeholder={label} type={type} />
-      {touched &&
-        ((error && <span>{error}</span>) ||
-          (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-);
-const renderFieldDate = ({
+const renderTextField = ({
   input,
   label,
   type,
@@ -30,14 +13,35 @@ const renderFieldDate = ({
   <div>
     <Label>{label}</Label>
     <div>
-      <Input {...input} placeholder={label} type={type} />
+      <Input {...input} placeholder="Enter User Name" type="text" />
       {touched &&
-        ((error && <span>{error}</span>) ||
+        ((error && <span className="error">{error}</span>) ||
           (warning && <span>{warning}</span>))}
     </div>
   </div>
 );
-const renderFieldEmail = ({
+const renderSelectField = ({
+  input,
+  label,
+  type,
+  options,
+  meta: { touched, error, warning },
+  custom,
+}) => (
+  <div>
+    <Label>{label}</Label>
+    <div>
+      <Input {...input}  type="select">
+        {options}
+      </Input>
+      {touched &&
+        ((error && <span className="error">{error}</span>) ||
+          (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+);
+
+const renderFieldDate = ({
   input,
   label,
   type,
@@ -45,50 +49,59 @@ const renderFieldEmail = ({
   custom,
 }) => (
   <div>
-    <Label>email</Label>
+    <Label>Date Of Birth</Label>
     <div>
-      <Input {...input} placeholder={label} type={type} />
+      <Input {...input} placeholder={label} type="Date" />
       {touched &&
-        ((error && <span>{error}</span>) ||
+        ((error && <span className="error">{error}</span>) ||
           (warning && <span>{warning}</span>))}
     </div>
   </div>
 );
 
-//   const renderFieldHobbies = ({
-//     input,
-//     label,
-//     type,
-//     meta: { touched, error, warning },
-//     custom,
-//   }) => (
-//     <div>
-//       <Label>Hobbies</Label>
-//       <div>
-//         <Input {...input} placeholder={label} type={type} />
-//         {touched &&
-//           ((error && <span>{error}</span>) ||
-//             (warning && <span>{warning}</span>))}
-//       </div>
-//     </div>
-//   );
+const renderFieldCheckBox = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning },
+  custom,
+}) => (
+  <div className="checkbox-container">
+    <div className="checkbox">
+      <Input {...input} placeholder={label} type="checkbox" />
+      <div>
+        <Label>Remember me</Label>
+      </div>
+    </div>
+    <div className="error-container">
+      {touched &&
+        ((error && <span className="error">{error}</span>) ||
+          (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+);
+const submit=(formProps)=> {
+  console.log(formProps)
+}
 
 const SimpleForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, pristine, reset, submitting,error } = props;
   return (
     <div className="container">
+      <div className="reduxform">
       <div className="reduxcontainer">
         <h1>Login Form</h1>
         <div className="reduxcardcontainer">
-          <Form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(submit)}>
             <div className="labelcontainer">
               <div>
                 <Field
                   name="username"
                   type="text"
-                  component={renderFieldText}
-                  label={renderFieldText.label}
-                  validate={[required]}
+                  component={renderTextField}
+                  // label={renderFieldText.label}
+                  label="User Name"
+                  validate={required}
                 />
               </div>
             </div>
@@ -96,25 +109,47 @@ const SimpleForm = (props) => {
               <div>
                 <Field
                   name="email"
-                  type="email"
-                  component={renderFieldEmail}
-                  label={renderFieldEmail.label}
+                  component={renderTextField}
+                  label="Email"
+                  // label={renderFieldEmail.label}
                   validate={[email]}
                 />
               </div>
             </div>
-            <div className="labelcontainer">
-              {/* <Label>Hobbies</Label> */}
+            {/* <FormGroup>
               <Label for="exampleSelect">Hobbies</Label>
+              <Input type="select" name="select" id="exampleSelect">
+                <option>Reading Books</option>
+                <option>Playing Crcicket</option>
+                <option>Watching Tv</option>
+              </Input>
+            </FormGroup> */}
+             <div className="labelcontainer">
+               {/* <Label>Hobbies</Label>  */}
+             {/* <Label for="exampleSelect">Hobbies</Label> */}
               <div>
-                <Field name="Hobbies" component="select">
+              <Field
+                  name="Hobbies"
+                  component={renderSelectField}
+                  label="Hobbies"
+                  // label={renderFieldEmail.label}
+                  validate={required}
+                  options= {
+                  <Fragment>
+                    <option value="0">Hobbies</option>
+                  <option value="ff0000">Reading Books</option>
+                  <option value="00ff00">Playing Cricket</option>
+                  <option value="0000ff">Watching Tv</option>
+                  </Fragment>}
+                />
+                {/* <Field name="Hobbies" component="select">
                   <option />
                   <option value="ff0000">Reading Books</option>
                   <option value="00ff00">Playing Cricket</option>
                   <option value="0000ff">Watching Tv</option>
-                </Field>
+                </Field> */}
               </div>
-            </div>
+            </div> 
             <div className="labelcontainer">
               {/* <Label>Date of birth</Label> */}
               <div>
@@ -122,7 +157,7 @@ const SimpleForm = (props) => {
                   name="date"
                   component={renderFieldDate}
                   type="Date"
-                  label="Date of birth"
+                  label={renderFieldDate.label}
                   placeholder="Date of birth"
                   validate={[date]}
                 />
@@ -157,11 +192,11 @@ const SimpleForm = (props) => {
                 <Field
                   name="remember"
                   id="remember"
-                  component="input"
+                  component={renderFieldCheckBox}
                   type="checkbox"
                   validate={[checkBox]}
                 />
-                <Label htmlFor="remember">Remember me</Label>
+                {/* <Label htmlFor="remember">Remember me</Label> */}
               </div>
             </div>
             <div className="labelcontainer">
@@ -169,8 +204,9 @@ const SimpleForm = (props) => {
                 Submit
               </Button>
             </div>
-          </Form>
+          </form>
         </div>
+      </div>
       </div>
     </div>
   );
