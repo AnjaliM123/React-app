@@ -1,26 +1,44 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Table, Button } from "reactstrap";
+import {
+  Table,
+  Button,
+  ModalBody,
+  ModalHeader,
+  ModalFooter,
+  Modal,
+  Input,
+  FormGroup,
+  Label,
+  Form,
+} from "reactstrap";
 import { AiFillDelete } from "react-icons/ai";
 
 import AddPost from "./AddPost";
 
 import { Link } from "react-router-dom";
 import PostDetails from "./PostDetails";
+import EditPost from "./EditPost"
+
 
 function Axios() {
+  // console.log(props)
   const [usersData, setUsersData] = useState({
     users: [],
     errors: null,
   });
   const [modal, setModal] = useState(false);
-
+  const [update, setUpdate] = useState(false);
   console.log(usersData.users);
   console.log(usersData);
 
   const toggle = () => {
     setModal(!modal);
   };
+
+   const open = () => {
+    setUpdate(!update);
+   }
 
   const onChangeTitle = (event) => {
     setUsersData((prevState) => ({
@@ -30,9 +48,9 @@ function Axios() {
   };
 
   // const onClickView = (id) => {
-    
+
   //     <PostDetails/>
-      
+
   // };
 
   console.log(usersData);
@@ -70,24 +88,19 @@ function Axios() {
     let deleted;
     const response = axios
       .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      
 
       .then((response) => {
         console.log("deleted");
-        
+
         const rows = usersData.users.filter(function (row) {
           return row.id !== id;
         });
         setUsersData({ users: rows });
-        
       })
       .catch((error) => {
         console.log(error);
       });
-    
   };
-
-  
 
   const fetchedData = () => {
     let data;
@@ -126,14 +139,14 @@ function Axios() {
               Add
             </Button>
           </div>
-          <AddPost
+          {modal&&<AddPost
             toggle={toggle}
             modal={modal}
             onClickSubmit={onClickSubmit}
             onChangeTitle={onChangeTitle}
-          />
+          />}
+          {update&& <EditPost toggle={open} update={update}/>}
           <Table striped>
-            
             <thead>
               <tr>
                 {/* <th >id</th> */}
@@ -141,17 +154,16 @@ function Axios() {
                 <th>User id</th>
                 <th>Title</th>
                 {/* <th style={{border:"1px solid black"}}>body</th> */}
+                <th>edit</th>
                 <th>View</th>
                 <th>Delete</th>
               </tr>
             </thead>
             <tbody>
               {usersData.users.map((user, i) => {
-                
                 const { id, userId, title, body } = user;
-                
+
                 return (
-                  
                   <tr key={i}>
                     {/* <td >{id}</td> */}
                     <td>{id}</td>
@@ -161,9 +173,14 @@ function Axios() {
                     {/* <td ><AiFillDelete id={id} onClick={()=>onClickDelete(id)}/> </td> */}
                     {/* <td><Button onClick={()=> onClickView(id)}>view</Button></td> */}
                     <td>
+                      <Button onClick={()=> open()} lassName="" color="secondary" >
+                        Edit
+                      </Button>
+                    </td>
+                    <td>
                       {/* <Link to={`/posts/${id}`}> */}
-                      <Link to ={`/PostsDetails/${id}`}>
-                        <Button >view</Button>
+                      <Link to={`/PostsDetails/${id}`}>
+                        <Button>view</Button>
                       </Link>
                     </td>
                     <td onClick={() => onClickDelete(id)}>
@@ -182,11 +199,8 @@ function Axios() {
                         />
                       </svg>
                     </td>
-                    
                   </tr>
-                  
                 );
-                
               })}
             </tbody>
           </Table>

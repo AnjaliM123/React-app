@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Field, reduxForm} from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
@@ -10,7 +10,7 @@ import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import { ReportGmailerrorred, SmsFailedRounded } from "@mui/icons-material";
 
-import { required } from "../constants/index";
+import { required,email } from "../constants/index";
 import ModalExample from "./crudOperation/AddPost";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -19,9 +19,10 @@ const renderTextField = ({
   input,
   label,
   variant,
-  meta: { touched, error },
+  meta: { touched, error,warning },
   ...custom
 }) => (
+  <Fragment>
   <TextField
     hintText={label}
     label={label}
@@ -31,15 +32,16 @@ const renderTextField = ({
     {...input}
     {...custom}
   />
+  {touched &&
+    ((error && <span className="error">{error}</span>) ||
+      (warning && <span>{warning}</span>))}
+    </Fragment>
 );
-
 
 // const  success=()=> {
 //    console.log("string")
-  
 
 // }
-
 
 // const submit=async(props)=> {
 //     console.log(props)
@@ -55,31 +57,33 @@ const renderTextField = ({
 //        if (response.status===201) {
 //            success()
 //        }
-        
-    
+
 // }
 
 const MaterialUiForm = (props) => {
-    const history=useHistory()
-    console.log(history)
-    const submit=async(props)=> {
-        console.log(props)
-        const article = {
-            username: "anjali",
-            passwoprd: "1234567",
-            email:"anjali.m@innomick.com",
-          };
-          const headers = { "Content-type": "application/json; charset=UTF-8" };
-          const response=await axios
-            .post("https://jsonplaceholder.typicode.com/posts", article, { headers })
-            console.log(response)
-           if (response.status===201) {
-              history.push("/Home")
-              console.log("string")
-           }
-            
-        
+  const history = useHistory();
+  console.log(history);
+
+  const submit = async (props) => {
+    console.log(props);
+    const article = {
+      username: "anjali",
+      passwoprd: "1234567",
+      email: "anjali.m@innomick.com",
+    };
+    const headers = { "Content-type": "application/json; charset=UTF-8" };
+    const response = await axios.post(
+      "https://jsonplaceholder.typicode.com/posts",
+      article,
+      { headers }
+    );
+    console.log(response);
+    if (response.status === 201) {
+      history.push("/Home");
+      console.log("string");
     }
+  };
+  
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit(submit)}>
@@ -133,6 +137,7 @@ const MaterialUiForm = (props) => {
                         name="email"
                         variant="standard"
                         component={renderTextField}
+                        validate={[email,required]}
                       />
                     </Box>
                   </FormControl>
@@ -151,6 +156,7 @@ const MaterialUiForm = (props) => {
                         name="password"
                         variant="standard"
                         component={renderTextField}
+                        validate={required}
                       />
                     </Box>
                   </FormControl>
@@ -158,7 +164,9 @@ const MaterialUiForm = (props) => {
               </Box>
               <div className="box-container">
                 <Box className="mt-3">
-                  <Button variant="contained" type="submit">submit</Button>
+                  <Button variant="contained" type="submit">
+                    submit
+                  </Button>
                 </Box>
               </div>
             </Card>

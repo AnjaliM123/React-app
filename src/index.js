@@ -10,9 +10,11 @@ import {createStore} from "redux"
 import { Provider } from 'react-redux';
 import allReducers from "./reducers/index";
 
+import {createLogger} from "redux-logger"
 
+// const logger=ReduxLogger.createLogger()
 
-const store=createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store=createStore(allReducers, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 // console.log(store.getState())
 // import { createStore, combineReducers } from 'redux';
 // import { reducer as reduxFormReducer } from 'redux-form';
