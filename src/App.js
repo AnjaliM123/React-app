@@ -43,7 +43,7 @@ import SimpleForm from './components/SimpleForm';
 
 import ReduxForm from './components/ReduxForm';
 
-import ReduxLoginForm from './components/ReduxLoginForm';
+import ReduxLoginForm from './components/ReduxLogin';
 
 function App() {
   return (
