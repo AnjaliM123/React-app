@@ -32,33 +32,13 @@ const renderTextField = ({
     {...input}
     {...custom}
   />
+  <div>
   {touched &&
     ((error && <span className="error">{error}</span>) ||
       (warning && <span>{warning}</span>))}
+      </div>
     </Fragment>
 );
-
-// const  success=()=> {
-//    console.log("string")
-
-// }
-
-// const submit=async(props)=> {
-//     console.log(props)
-//     const article = {
-//         username: "anjali",
-//         passwoprd: "1234567",
-//         email:"anjali.m@innomick.com",
-//       };
-//       const headers = { "Content-type": "application/json; charset=UTF-8" };
-//       const response=await axios
-//         .post("https://jsonplaceholder.typicode.com/posts", article, { headers })
-//         console.log(response)
-//        if (response.status===201) {
-//            success()
-//        }
-
-// }
 
 const MaterialUiForm = (props) => {
   const history = useHistory();

@@ -16,32 +16,20 @@ function PostDetails(props) {
 
   const onClickBack = () => {
     const { history } = props;
-    // <Redirect to="/posts"/>
-    // console.log("click")
+  
     console.log("click");
-    // window.history.pushState(`/posts/${match.params.id}`,"/posts")
-    history.replace("/posts");
+    history.goBack();
   };
 
   const [itemData, setItemData] = useState({ posts: [], errors: null });
 
   const fetchedData = async () => {
-    // const postDetails= await axios.get(`https://jsonplaceholder.typicode.com/posts/${match.params.id}`);
-    // console.log("fetchedData", fetchedData)
-
-    // setPostDetails(postDetails)
-    // console.log(postDetails)
-
-    // const response=await axios.get(`https://jsonplaceholder.typicode.com/posts?id=${match.params.id}`)
-    //  setPostDetails(postDetails)
-
-    // setPostDetails((prevState)=> ({...prevState, posts:response}))
-    // console.log(postDetails)
+    console.log(props)
     let data1;
-
+    console.log(props.location.search.substring(1))
     try {
       const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts?id=${match.params.id}`
+        `https://jsonplaceholder.typicode.com/posts?id=${props.location.search.substring(1)}`
       );
       //console.log(response)
       data1 = response.data.map((user) => {

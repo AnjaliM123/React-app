@@ -60,7 +60,7 @@ function App() {
      <Route path="/Users-Details" component={Task1} />
      <Route path="/CrudOperation" component={Task2} />
      <Route  path="/posts" exact component={Task3} />
-     <Route path="/postsDetails/:id" exact component={PostDetails}/>
+     <Route path="/postsDetails" exact component={PostDetails}/>
      <Route path="/redux" component={ReduxCounter}/>
      <Route path="/ReduxForm" component={ReduxForm}/>
     </Switch>

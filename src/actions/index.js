@@ -20,3 +20,12 @@ export const signIn=()=> {
         type:COUNTER_CONST.SIGN_IN
     }
 }
+
+
+export const updateUser = () => {
+    return {
+        type: COUNTER_CONST.UPDATE_USER
+ }
+}
+
+

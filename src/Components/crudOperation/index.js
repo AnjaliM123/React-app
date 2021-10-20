@@ -29,14 +29,27 @@ function Axios() {
   });
   const [modal, setModal] = useState(false);
   const [update, setUpdate] = useState(false);
-  console.log(usersData.users);
-  console.log(usersData);
+  // const [rowUpdate, setRowUpdate]=useState({updateUsers:[]})
+  const [rowUpdate, setRowUpdate]=useState({title:"", body:""})
 
   const toggle = () => {
     setModal(!modal);
   };
 
-   const open = () => {
+  const initialValues=(id)=> {
+  const updatedRows=usersData.users.find(function(row) {
+    return row.id===id
+  })
+  console.log("updatedRow", updatedRows)
+  if (updatedRows) {
+    setRowUpdate({title:updatedRows.title, body:updatedRows.body})
+    updateToggle()
+  }
+}
+console.log("rowUpdate", rowUpdate)
+console.log(rowUpdate)
+   const updateToggle = () => {
+
     setUpdate(!update);
    }
 
@@ -64,6 +77,7 @@ function Axios() {
     const article = {
       title: `${usersData.title}`,
       userId: 1,
+      // id:usersData.length+1,
       body: `${usersData["body"]}`,
     };
     const headers = { "Content-type": "application/json; charset=UTF-8" };
@@ -71,7 +85,7 @@ function Axios() {
       .post("https://jsonplaceholder.typicode.com/posts", article, { headers })
       .then((response) => {
         addData = response.data;
-        console.log(addData);
+        console.log("addData", addData);
         usersData.users.splice(0, 0, addData);
         addToggle();
         // setUsersData((prevState)=> ({...prevState, users:addData}))
@@ -145,7 +159,7 @@ function Axios() {
             onClickSubmit={onClickSubmit}
             onChangeTitle={onChangeTitle}
           />}
-          {update&& <EditPost toggle={open} update={update}/>}
+          {update&& <EditPost updateToggle={updateToggle} update={update} initialValues={rowUpdate}/>}
           <Table striped>
             <thead>
               <tr>
@@ -173,13 +187,13 @@ function Axios() {
                     {/* <td ><AiFillDelete id={id} onClick={()=>onClickDelete(id)}/> </td> */}
                     {/* <td><Button onClick={()=> onClickView(id)}>view</Button></td> */}
                     <td>
-                      <Button onClick={()=> open()} lassName="" color="secondary" >
+                      <Button onClick={()=>initialValues(id)} id={id} lassName="" color="secondary" >
                         Edit
                       </Button>
                     </td>
                     <td>
                       {/* <Link to={`/posts/${id}`}> */}
-                      <Link to={`/PostsDetails/${id}`}>
+                      <Link to={`/PostsDetails?${id}`}>
                         <Button>view</Button>
                       </Link>
                     </td>
