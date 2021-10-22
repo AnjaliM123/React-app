@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Field, reduxForm } from "redux-form";
 import { Button, Label, Form, Input, FormGroup } from "reactstrap";
 import { required, date, email, select, checkBox } from "../constants";
-
+import {Link} from "react-router-dom"
 const renderTextField = ({
   input,
   label,
@@ -203,6 +203,9 @@ const SimpleForm = (props) => {
               <Button type="submit" disabled={pristine || submitting}>
                 Submit
               </Button>
+            </div>
+            <div>
+              <Link to="/SignUpPage">for registration click here</Link>
             </div>
           </form>
         </div>

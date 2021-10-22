@@ -45,31 +45,38 @@ import ReduxForm from './components/ReduxForm';
 
 import ReduxLoginForm from './components/ReduxLogin';
 
+import ReduxPost from './components/Post';
+
+import SignUpPage from "./components/SignUpPage"
+import GetPostDetails from './components/GetPostDetails';
+
 function App() {
   return (
-    <BrowserRouter>
+  //   <BrowserRouter>
       
-    <Header/>
-    <Switch>
-      <Route exact path="/" component={ReduxLoginForm} />
-      <Route exact path="/Home" component={Home} />
-     <Route  path="/RegistrationPage" component={RegistrationPage} />
-      <Route  path="/Login-Form" component={LoginForm} />
-     <Route path="/Counter" component={Counter} />
-     <Route path="/Users-List" component={UsersList} />
-     <Route path="/Users-Details" component={Task1} />
-     <Route path="/CrudOperation" component={Task2} />
-     <Route  path="/posts" exact component={Task3} />
-     <Route path="/postsDetails" exact component={PostDetails}/>
-     <Route path="/redux" component={ReduxCounter}/>
-     <Route path="/ReduxForm" component={ReduxForm}/>
-    </Switch>
+  //   <Header/>
+  //   <Switch>
+  //     <Route exact path="/" component={ReduxLoginForm} />
+  //     <Route exact path="/Home" component={Home} />
+  //    <Route  path="/RegistrationPage" component={RegistrationPage} />
+  //     <Route  path="/Login-Form" component={LoginForm} />
+  //    <Route path="/Counter" component={Counter} />
+  //    <Route path="/Users-List" component={UsersList} />
+  //    <Route path="/Users-Details" component={Task1} />
+  //    <Route path="/CrudOperation" component={Task2} />
+  //    <Route  path="/posts" exact component={Task3} />
+  //    <Route path="/postsDetails" exact component={PostDetails}/>
+  //    <Route path="/redux" component={ReduxCounter}/>
+  //    <Route path="/ReduxForm" component={ReduxForm}/>
+  //    <Route path="/GetUsers" component={ReduxPost} />
+  //    <Route to="/SignUpPage" component={SignUpPage} />
+  //   </Switch>
 
-   </BrowserRouter>
-    // <ReduxCounter/>
+  //  </BrowserRouter>
 
-      //  <ReduxForm/>
-    // <ReduxLoginForm/>
+
+        // <SignUpPage/>
+        <GetPostDetails/>
   );
 }
 

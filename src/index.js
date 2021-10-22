@@ -6,22 +6,17 @@ import reportWebVitals from './reportWebVitals';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import {createStore, applyMiddleware } from "redux"
+import {createStore, applyMiddleware, compose } from "redux"
 import { Provider } from 'react-redux';
 import allReducers from "./reducers/index";
 
-import {createLogger} from "redux-logger"
+
 import thunk from 'redux-thunk';
 // const logger=ReduxLogger.createLogger()
+// const =window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const componseEnhancer=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ 
+const store=createStore(allReducers, componseEnhancer( applyMiddleware(thunk)))
 
-const store=createStore(allReducers, applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-// console.log(store.getState())
-// import { createStore, combineReducers } from 'redux';
-// import { reducer as reduxFormReducer } from 'redux-form';
-
-// const reducer = combineReducers({
-//   form: reduxFormReducer, // mounted under "form"
-// });
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
