@@ -1,4 +1,4 @@
-import { COUNTER_CONST,  } from "../actionsTypes/index"
+import { COUNTER_CONST, DELETE_POST,  } from "../actionsTypes/index"
 import { USERS_CONST } from "../actionsTypes/index"
 import {POSTS_CONST} from "../actionsTypes/index"
 
@@ -117,3 +117,49 @@ export function checkHttpStatus(response) {
       });
     }
   };
+
+
+  export const deletePosts=(id)=> async(dispatch)=> {
+    try {
+      await dispatch({
+        type: DELETE_POST.DELETE_POST_REQUEST,
+      });
+      const deleteResponse = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      const parsingJson = await checkHttpStatus(deleteResponse);
+      if (parsingJson.status === 200) {
+        dispatch({
+          type: DELETE_POST.DELETE_POST_SUCCESS,
+          payload: {
+            statusCode: 200,
+            data: deleteResponse.data,
+          },
+        });
+      } else {
+        console.log("error");
+        dispatch({
+          type: DELETE_POST.DELETE_POST_FAILURE,
+          payload: {
+            response: {
+              statusCode: 200,
+              data: deleteResponse,
+            },
+          },
+        });
+      }
+
+
+    }
+    catch (error) {
+      await dispatch({
+        type: DELETE_POST.DELETE_POST_FAILURE,
+        error: {
+          statusText: error,
+          netWorkError: true,
+        }
+      })
+    }
+
+    
+      
+
+  }

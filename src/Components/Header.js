@@ -19,6 +19,7 @@ export default function Header() {
                 <li className="link-item"><Link to="/ReduxForm">Redux Form</Link></li>
                 <li className="link-item"><Link to="/GetUsers">Get Users</Link></li>
                 <li className="link-item"><Link to="/SignUpPage">SignUp Page</Link></li>
+                <li className="link-item"><Link to="/GetPost">Posts List</Link></li>
             </ul>
         </>
     )

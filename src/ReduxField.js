@@ -1,6 +1,5 @@
 import { Label, Input } from "reactstrap";
-import {label,type,meta} from "./components/crudOperation/EditPost"
-import {value} from "./components/crudOperation/index"
+
 export const renderTextField = ({
     input,
     label,

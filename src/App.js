@@ -1,7 +1,7 @@
 
 import './App.css';
-import counter from "./components/counter"
-import SamplePage from "./components/SamplePage"
+
+// import SamplePage from "./components/SamplePage"
 // import LoginForm from "./components/LoginForm"
 import assets from "./assets/login-form.css"
 
@@ -39,7 +39,7 @@ import PostDetails from './components/crudOperation/PostDetails';
 
 import ReduxCounter from "./components/reduxCounter"
 
-import SimpleForm from './components/SimpleForm';
+// import SimpleForm from './components/SimpleForm';
 
 import ReduxForm from './components/ReduxForm';
 
@@ -52,31 +52,35 @@ import GetPostDetails from './components/GetPostDetails';
 
 function App() {
   return (
-  //   <BrowserRouter>
+    <BrowserRouter>
       
-  //   <Header/>
-  //   <Switch>
-  //     <Route exact path="/" component={ReduxLoginForm} />
-  //     <Route exact path="/Home" component={Home} />
-  //    <Route  path="/RegistrationPage" component={RegistrationPage} />
-  //     <Route  path="/Login-Form" component={LoginForm} />
-  //    <Route path="/Counter" component={Counter} />
-  //    <Route path="/Users-List" component={UsersList} />
-  //    <Route path="/Users-Details" component={Task1} />
-  //    <Route path="/CrudOperation" component={Task2} />
-  //    <Route  path="/posts" exact component={Task3} />
-  //    <Route path="/postsDetails" exact component={PostDetails}/>
-  //    <Route path="/redux" component={ReduxCounter}/>
-  //    <Route path="/ReduxForm" component={ReduxForm}/>
-  //    <Route path="/GetUsers" component={ReduxPost} />
-  //    <Route to="/SignUpPage" component={SignUpPage} />
-  //   </Switch>
+    <Header/>
+    <Switch>
+      <Route exact path="/" component={ReduxLoginForm} />
+      <Route exact path="/Home" component={Home} />
+     <Route  path="/RegistrationPage" component={RegistrationPage} />
+      <Route  path="/Login-Form" component={LoginForm} />
+     <Route path="/Counter" component={Counter} />
+     <Route path="/Users-List" component={UsersList} />
+     <Route path="/Users-Details" component={Task1} />
+     <Route path="/CrudOperation" component={Task2} />
+     <Route  path="/posts" exact component={Task3} />
+     <Route path="/postsDetails" exact component={PostDetails}/>
+     <Route path="/redux" component={ReduxCounter}/>
+     <Route path="/ReduxForm" component={ReduxForm}/>
+     <Route path="/GetUsers" component={ReduxPost} />
+     <Route path="/SignUpPage" component={SignUpPage} />
+     <Route path="/GetPost" component={GetPostDetails}/>
+    </Switch>
 
-  //  </BrowserRouter>
+   </BrowserRouter>
 
 
         // <SignUpPage/>
-        <GetPostDetails/>
+        // <GetPostDetails/>
+
+
+        // <GetPostDetails/>
   );
 }
 

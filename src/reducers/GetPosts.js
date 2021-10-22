@@ -1,25 +1,25 @@
-import {  POSTS_CONST } from "../actionsTypes/index"
+import {  POSTS_CONST } from "../actionsTypes"
 
 const GetPostReducer = (state={}, action) => {
-    console.log("act", action)
+    
     switch (action.type) {
        case POSTS_CONST.GET_POSTS_REQUEST:
           return {
           isLoading:true,
-          posts:action.payload
+          allPosts:action.payload
           }
     case POSTS_CONST.GET_POSTS_SUCCESS:
         return {
     
             ...state,
-            posts:action.payload && action.payload,
+            allPosts:action.payload &&action.payload.data,
             isLoading:false
         }
     case POSTS_CONST.GET_POSTS_FAILURE:
         return {
             
             ...state,
-          posts:action.payload,
+          allPosts:action.payload,
           isLoading:false
         }
       default:

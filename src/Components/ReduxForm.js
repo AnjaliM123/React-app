@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Field, reduxForm } from "redux-form";
-import { Button, Label, Form, Input, FormGroup } from "reactstrap";
-import { required, date, email, select, checkBox } from "../constants";
+import { Button, Label,  Input } from "reactstrap";
+import { required, date, email,  checkBox } from "../constants";
 import {Link} from "react-router-dom"
 const renderTextField = ({
   input,
@@ -85,7 +85,7 @@ const submit=(formProps)=> {
 }
 
 const SimpleForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting,error } = props;
+  const { handleSubmit, pristine,  submitting } = props;
   return (
     <div className="container">
       <div className="reduxform">
@@ -205,7 +205,7 @@ const SimpleForm = (props) => {
               </Button>
             </div>
             <div>
-              <Link to="/SignUpPage">for registration click here</Link>
+              <Link to="/SignUpPage">for SignUp click here</Link>
             </div>
           </form>
         </div>

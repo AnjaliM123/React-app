@@ -1,10 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+
+import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 
 
 const ModalExample = (props) => {
-  const {toggle,onClickSubmit,modal, onChangeTitle, onChangeBody}=props
+  const {toggle,onClickSubmit,modal, onChangeTitle}=props
   console.log(onChangeTitle)
   // console.log(props)
   // const {

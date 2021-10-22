@@ -1,12 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Field, reduxForm } from "redux-form";
-import { Button, Label, Form, Input, FormGroup } from "reactstrap";
-import { required, date, email, select, checkBox } from "../constants";
+import { Button, Label, Input } from "reactstrap";
+import { required } from "../constants";
 import {useDispatch} from "react-redux"
-import { getPosts, getUsers } from "../actions";
+import { getPosts } from "../actions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import {useHistory} from "react-router-dom"
 
+
+import {Link} from "react-router-dom"
 const renderTextField = ({
   input,
   label,
@@ -28,11 +31,12 @@ const renderTextField = ({
 
 
 const SimpleForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting,error } = props;
+  const { handleSubmit, pristine,  submitting } = props;
+  const history=useHistory()
   const dispatch=useDispatch();
-  const {signUpPage}=useSelector(state=>state)
-  const {posts}=useSelector(state=>state.posts)
-
+  // const {signUpPage}=useSelector(state=>state)
+  const posts=useSelector(state=>state.posts.allPosts)
+ 
 // useEffect(()=> {
 
 // })
@@ -41,12 +45,17 @@ const SimpleForm = (props) => {
   const submit=(formProps)=> {
     console.log(formProps)
     // dispatch(getPosts())
-    
   }
 
   useEffect(()=> {
-        console.log("posts", props)
-  },[props])
+    // dispatch(getPosts())
+        console.log("posts", posts)
+  
+       if (posts&&posts.length) {
+
+        history.push("/Posts")
+       }
+  },[history,posts])
 
   return (
     <div className="container">
@@ -80,6 +89,9 @@ const SimpleForm = (props) => {
               <Button type="submit" disabled={pristine || submitting} onClick={() => dispatch(getPosts())}> 
                 Submit
               </Button>
+            </div>
+            <div>
+              <Link to="/ReduxForm">For Registration Click here</Link>
             </div>
           </form>
         </div>

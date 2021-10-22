@@ -11,7 +11,7 @@ import GetPostReducer from "./GetPosts"
 const allReducers=combineReducers({
     counter:CounterReducer,
     isLogged:LoggedReducer,
-    // users:GetUsersReducer,
+    users:GetUsersReducer,
     posts:GetPostReducer,
     form:formReducer
 })

@@ -8,10 +8,10 @@ import EmailIcon from "@mui/icons-material/Email";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
-import { ReportGmailerrorred, SmsFailedRounded } from "@mui/icons-material";
+
 
 import { required,email } from "../constants/index";
-import ModalExample from "./crudOperation/AddPost";
+
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -64,7 +64,7 @@ const MaterialUiForm = (props) => {
     }
   };
   
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit(submit)}>
       <div className="container">

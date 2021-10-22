@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Redirect } from "react-router-dom";
+
 import axios from "axios";
 import { Button } from "reactstrap";
 
 function PostDetails(props) {
   const { match } = props;
 
-  const { params } = match;
-  const { id } = params;
+  
 
   useEffect(() => {
     fetchedData();

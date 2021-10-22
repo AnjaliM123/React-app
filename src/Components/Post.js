@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect,  } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {getUsers} from "../actions/index"
 
@@ -9,7 +9,7 @@ const Post=()=> {
 
    useEffect(()=> {
       dispatch(getUsers())
-    },[])
+    },[dispatch])
 
 
    return (

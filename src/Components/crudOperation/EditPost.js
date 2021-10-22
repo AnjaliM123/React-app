@@ -1,8 +1,8 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import {Button, ModalFooter,Input,Label,FormGroup, ModalHeader, Modal, ModalBody} from "reactstrap"
+import {Button, ModalFooter, ModalHeader, Modal, } from "reactstrap"
 
-import {connect} from 'react-redux'
+
 
 import { renderTextField } from '../../ReduxField'
 import {required} from "../../constants/index"

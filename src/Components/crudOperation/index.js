@@ -1,23 +1,18 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import {
   Table,
   Button,
-  ModalBody,
-  ModalHeader,
-  ModalFooter,
-  Modal,
-  Input,
-  FormGroup,
-  Label,
-  Form,
+ 
+  
+  
 } from "reactstrap";
-import { AiFillDelete } from "react-icons/ai";
+
 
 import AddPost from "./AddPost";
 
 import { Link } from "react-router-dom";
-import PostDetails from "./PostDetails";
+
 import EditPost from "./EditPost"
 
 
@@ -98,9 +93,9 @@ console.log(rowUpdate)
   const onClickDelete = (id) => {
     console.log("click", id);
 
-    let data;
-    let deleted;
-    const response = axios
+    
+   
+    axios
       .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
 
       .then((response) => {
@@ -175,7 +170,7 @@ console.log(rowUpdate)
             </thead>
             <tbody>
               {usersData.users.map((user, i) => {
-                const { id, userId, title, body } = user;
+                const { id, userId, title } = user;
 
                 return (
                   <tr key={i}>
