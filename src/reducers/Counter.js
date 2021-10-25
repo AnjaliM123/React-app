@@ -1,4 +1,4 @@
-import { COUNTER_CONST } from "../actionsTypes/Counter";
+import { COUNTER_CONST } from "../actionsTypes";
 
 const CounterReducer=(state=0, action)=> {
     switch(action.type) {

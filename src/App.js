@@ -45,31 +45,37 @@ import ReduxForm from './components/ReduxForm';
 
 import ReduxLoginForm from './components/ReduxLoginForm';
 
+import Users from "./components/Users"
+
 function App() {
   return (
-    <BrowserRouter>
+  //   <BrowserRouter>
       
-    <Header/>
-    <Switch>
-      <Route exact path="/" component={ReduxLoginForm} />
-      <Route exact path="/Home" component={Home} />
-     <Route  path="/RegistrationPage" component={RegistrationPage} />
-      <Route  path="/Login-Form" component={LoginForm} />
-     <Route path="/Counter" component={Counter} />
-     <Route path="/Users-List" component={UsersList} />
-     <Route path="/Users-Details" component={Task1} />
-     <Route path="/CrudOperation" component={Task2} />
-     <Route  path="/posts" exact component={Task3} />
-     <Route path="/postsDetails/:id" exact component={PostDetails}/>
-     <Route path="/redux" component={ReduxCounter}/>
-     <Route path="/ReduxForm" component={ReduxForm}/>
-    </Switch>
+  //   <Header/>
+  //   <Switch>
+  //     <Route exact path="/" component={ReduxLoginForm} />
+  //     <Route exact path="/Home" component={Home} />
+  //    <Route  path="/RegistrationPage" component={RegistrationPage} />
+  //     <Route  path="/Login-Form" component={LoginForm} />
+  //    <Route path="/Counter" component={Counter} />
+  //    <Route path="/Users-List" component={UsersList} />
+  //    <Route path="/Users-Details" component={Task1} />
+  //    <Route path="/CrudOperation" component={Task2} />
+  //    <Route  path="/posts" exact component={Task3} />
+  //    <Route path="/postsDetails/:id" exact component={PostDetails}/>
+  //    <Route path="/redux" component={ReduxCounter}/>
+  //    <Route path="/ReduxForm" component={ReduxForm}/>
+  //   </Switch>
 
-   </BrowserRouter>
+  //  </BrowserRouter>
     // <ReduxCounter/>
 
       //  <ReduxForm/>
     // <ReduxLoginForm/>
+
+<Users/>
+
+
   );
 }
 
