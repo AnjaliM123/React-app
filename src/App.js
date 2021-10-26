@@ -46,6 +46,10 @@ import ReduxForm from './components/ReduxForm';
 import ReduxLoginForm from './components/ReduxLoginForm';
 
 import Users from "./components/Users"
+import BasicTable  from './components/BasicTable';
+import PostUsers from './components/PostUsers';
+
+
 
 function App() {
   return (
@@ -73,8 +77,28 @@ function App() {
       //  <ReduxForm/>
     // <ReduxLoginForm/>
 
-<Users/>
+// {/* <Users/> */}
 
+      //  <Users />
+      // <BasicTable />
+<>
+
+      {/* <Users /> */}
+      {/* <BasicTable /> */}
+      {/* <Users /> */}
+
+
+      {/* <BasicTable /> */}
+
+
+      {/* <Users /> */}
+
+      {/* <PostUsers /> */}
+
+
+      <Users />
+     
+</>
 
   );
 }
