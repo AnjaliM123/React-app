@@ -4,7 +4,7 @@ import { Table, Button } from "reactstrap";
 import { AiFillDelete } from "react-icons/ai";
 
 import AddPost from "./AddPost";
-
+// crud operation 
 function Axios() {
   const [usersData, setUsersData] = useState({
     users: [],
