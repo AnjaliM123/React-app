@@ -4,6 +4,7 @@ import { Table, Button } from "reactstrap";
 import { AiFillDelete } from "react-icons/ai";
 
 import AddPost from "./AddPost";
+// crud operation 
 
 import { Link } from "react-router-dom";
 import PostDetails from "./PostDetails";
@@ -30,9 +31,9 @@ function Axios() {
   };
 
   // const onClickView = (id) => {
-    
+
   //     <PostDetails/>
-      
+
   // };
 
   console.log(usersData);
@@ -70,24 +71,24 @@ function Axios() {
     let deleted;
     const response = axios
       .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      
+
 
       .then((response) => {
         console.log("deleted");
-        
+
         const rows = usersData.users.filter(function (row) {
           return row.id !== id;
         });
         setUsersData({ users: rows });
-        
+
       })
       .catch((error) => {
         console.log(error);
       });
-    
+
   };
 
-  
+
 
   const fetchedData = () => {
     let data;
@@ -133,7 +134,7 @@ function Axios() {
             onChangeTitle={onChangeTitle}
           />
           <Table striped>
-            
+
             <thead>
               <tr>
                 {/* <th >id</th> */}
@@ -147,11 +148,11 @@ function Axios() {
             </thead>
             <tbody>
               {usersData.users.map((user, i) => {
-                
+
                 const { id, userId, title, body } = user;
-                
+
                 return (
-                  
+
                   <tr key={i}>
                     {/* <td >{id}</td> */}
                     <td>{id}</td>
@@ -162,7 +163,7 @@ function Axios() {
                     {/* <td><Button onClick={()=> onClickView(id)}>view</Button></td> */}
                     <td>
                       {/* <Link to={`/posts/${id}`}> */}
-                      <Link to ={`/PostsDetails/${id}`}>
+                      <Link to={`/PostsDetails/${id}`}>
                         <Button >view</Button>
                       </Link>
                     </td>
@@ -182,11 +183,11 @@ function Axios() {
                         />
                       </svg>
                     </td>
-                    
+
                   </tr>
-                  
+
                 );
-                
+
               })}
             </tbody>
           </Table>
