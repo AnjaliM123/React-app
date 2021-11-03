@@ -6,6 +6,9 @@ import BasicTable from "./BasicTable";
 import ReactTable from "react-table-6";
 import 'react-table-6/react-table.css'
 
+
+//here iam making some changes
+
 const User = () => {
   const users = useSelector((state) => state.users.users);
   console.log(usersList);
@@ -16,11 +19,11 @@ const User = () => {
     dispatch(usersList());
   }, [dispatch]);
 
-  
+
   const columns = [
     {
-      Header:"Id",
-      accessor:"id"
+      Header: "Id",
+      accessor: "id"
     },
     {
       Header: "Name",
@@ -31,19 +34,19 @@ const User = () => {
       accessor: "username",
     },
     {
-      Header:"email",
-      accessor:"email",
+      Header: "email",
+      accessor: "email",
     },
     {
-      Header:"Phone",
-      accessor:"phone",
+      Header: "Phone",
+      accessor: "phone",
     }
   ];
 
   return (
     <>
       <h1>users List</h1>
-      <br/>
+      <br />
       {/* {users.users?.length&&users.users.map((each)=> {
      {console.log(each.name)}
      return (
@@ -54,8 +57,8 @@ const User = () => {
      )
    })} */}
 
-      <ReactTable columns={columns} data={users} defaultPageSize = {10}  
-                  pageSizeOptions = {[2,4, 6]}  />
+      <ReactTable columns={columns} data={users} defaultPageSize={10}
+        pageSizeOptions={[2, 4, 6]} />
     </>
   );
 };
