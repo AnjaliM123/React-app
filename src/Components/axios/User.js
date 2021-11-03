@@ -29,7 +29,7 @@ class Users extends Component {
   render() {
     const { isLoading, users } = this.state;
     return (
-      <>
+      <div className="container">
         <h2>Random User</h2>
         <div>
           {!isLoading ? (
@@ -49,7 +49,7 @@ class Users extends Component {
             <p>Loading...</p>
           )}
         </div>
-      </>
+      </div>
     );
   }
 }

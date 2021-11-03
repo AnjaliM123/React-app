@@ -42,7 +42,7 @@ useEffect(()=> {
 }, [])
 
     return (
-        <>
+        <div className="container">
         <h1>users</h1>
         <div>
             {console.log(usersData.loading)}
@@ -68,7 +68,7 @@ useEffect(()=> {
             <p>Loading...</p>
           )}
         </div>
-        </>
+        </div>
     )
 }
 export default Hooks

@@ -6,9 +6,25 @@ import reportWebVitals from './reportWebVitals';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import {createStore} from "redux"
+import { Provider } from 'react-redux';
+import allReducers from "./reducers/index";
+
+
+
+const store=createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// console.log(store.getState())
+// import { createStore, combineReducers } from 'redux';
+// import { reducer as reduxFormReducer } from 'redux-form';
+
+// const reducer = combineReducers({
+//   form: reduxFormReducer, // mounted under "form"
+// });
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

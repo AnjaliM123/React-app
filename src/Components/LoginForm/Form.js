@@ -21,7 +21,7 @@ function FormName () {
 console.log(form)
 
 return (
-    <div>
+    <div className="container">
         <div className="login-container">
             <h className="signheading">free register</h>
             <p className="signheading">get your your free skote account now</p>

@@ -1,46 +1,73 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-// import IconButton from "@mui/material/IconButton";
-// import Input from "@mui/material/Input";
-// import FilledInput from "@mui/material/FilledInput";
-// import OutlinedInput from "@mui/material/OutlinedInput";
-// import InputLabel from "@mui/material/InputLabel";
-// import InputAdornment from "@mui/material/InputAdornment";
-// import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
-// import Visibility from "@mui/icons-material/Visibility";
-// import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import EmailIcon from "@mui/icons-material/Email";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-// import { flexbox } from "@mui/system";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
+import { SmsFailedRounded } from "@mui/icons-material";
+import axios from "axios";
+import { email } from "../constants";
 
 const image =
   "https://res.cloudinary.com/ddcycgbwg/image/upload/v1633696396/images_czf2nm.jpg";
 
-export default function InputAdornments() {
+export default function InputAdornments(props) {
   const [values, setValues] = React.useState({
+      username:"",
+      email:"",
     password: "",
-    showPassword: false,
+    showError:false
   });
 
-  // const handleChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
+  const onChangeText = (event) => {
+    setValues((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  };
+console.log(values)
+  const failure=()=> {
+      console.log("failure")
+      setValues((prevState)=> ({...prevState, showError:true}))
+    
+  }
 
-  // const handleClickShowPassword = () => {
-  //   setValues({
-  //     ...values,
-  //     showPassword: !values.showPassword,
-  //   });
-  // };
+  const success=()=> {
 
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
+
+    const {history}=props
+    history.push("/Home")
+    setValues((prevState)=> ({...prevState, showError:false}))
+  }
+
+
+
+
+  const onClickSubmit=async()=> {
+
+    
+  
+    const article = {
+      username: `${values.username}`,
+      email: `${values.email}`,
+      password: `${values.password}`,
+    };
+    const headers = { "Content-type": "application/json; charset=UTF-8" };
+    const response= await axios
+      .post("https://jsonplaceholder.typicode.com/posts", article, { headers })
+      console.log(response)
+    if (response.data.username=="" && response.data.email=="" && response.data.password=="") {
+        console.log("click")
+        failure()
+    }
+    else  {
+        success()
+    }
+     
+  }
 
   return (
     <div className="container">
@@ -95,7 +122,8 @@ export default function InputAdornments() {
                 <TextField
                   id="input-with-sx"
                   label="First Name"
-                  variant="standard"
+                  name="username"
+                  variant="standard" onChange={(e)=>onChangeText(e)}
                 />
               </Box>
             </FormControl>
@@ -106,7 +134,9 @@ export default function InputAdornments() {
                   <TextField
                     id="input-with-sx"
                     label="Email"
+                    name="email"
                     variant="standard"
+                    onChange={(e)=>onChangeText(e)}
                   />
                 </Box>
               </FormControl>
@@ -121,15 +151,22 @@ export default function InputAdornments() {
                     id="input-with-sx"
                     type={values.showPassword ? "text" : "password"}
                     label="Password"
+                    name="password"
                     variant="standard"
+                    onChange={(e)=>onChangeText(e)}
                   />
-                </Box>
-                <Box sx={{ mt: 3 }}>
-                  <Button variant="contained">submit</Button>
                 </Box>
               </FormControl>
             </Box>
           </Box>
+          <div className="box-container">
+                <Box sx={{mt:3}}>
+                  <Button variant="contained" onClick={()=>onClickSubmit()}>submit</Button>
+                </Box>
+                </div>
+                <div>
+                  {values.showError?"Please Enter valid values":null}
+                </div>
         </Card>
       </Box>
     </Box>
