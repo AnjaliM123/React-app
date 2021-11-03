@@ -1,7 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Label,Button, Form } from 'reactstrap';
+import { Label, Button, Form } from 'reactstrap';
 
+
+//simpleForm
 
 const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
@@ -94,5 +96,5 @@ const SimpleForm = props => {
 };
 
 export default reduxForm({
-  form: 'simple', 
+  form: 'simple',
 })(SimpleForm);
