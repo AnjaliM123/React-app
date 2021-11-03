@@ -1,4 +1,4 @@
-import { COUNTER_CONST } from "../actionsTypes/Counter"
+import { COUNTER_CONST } from "../actionsTypes"
 
 const LoggedReducer=(state=false, action)=> {
     switch(action.type) {
